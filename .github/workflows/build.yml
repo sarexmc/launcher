@@ -8,8 +8,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
-      - run: npx electron-builder --win nsis --publish never
+      - name: Instalar dependencias
+        shell: bash
+        run: npm install --ignore-scripts
+      - name: Descargar Electron (con reintentos)
+        shell: bash
+        run: |
+          for i in 1 2 3 4 5; do
+            if node node_modules/electron/install.js; then exit 0; fi
+            echo "Intento $i falló, reintentando..."; sleep 30
+          done
+          exit 1
+      - name: Crear instalador (con reintentos)
+        shell: bash
+        run: |
+          for i in 1 2 3; do
+            if npx electron-builder --win nsis --publish never; then exit 0; fi
+            echo "Intento $i falló, reintentando..."; sleep 30
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
         with:
           name: SarexStudioLauncher-instalador
