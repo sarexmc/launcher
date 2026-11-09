@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data: https:;">
+<title>Sarex Studio Launcher</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Nunito+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <span class="brand">Sarex Studio Launcher</span>
+  <div class="wc"><button data-w="min" aria-label="Minimizar">–</button><button data-w="close" aria-label="Cerrar">×</button></div>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="halo" aria-hidden="true"></div>
+    <img class="logo" src="logo.png" alt="Sarex Studio">
+    <p class="ver" id="ver">Minecraft 1.21.1 con Fabric</p>
+    <button id="play" class="play" disabled>JUGAR</button>
+    <div class="prog" id="prog" hidden><div class="fill" id="fill"></div></div>
+    <p class="msg" id="msg">Cargando…</p>
+  </section>
+
+  <aside class="side">
+    <div class="panel" id="account">
+      <h2>Cuenta</h2>
+      <div id="logged" hidden>
+        <p class="who" id="who"></p>
+        <button class="link" id="logout">Cambiar de cuenta</button>
+      </div>
+      <div id="login">
+        <button class="btn" id="ms">Entrar con Microsoft</button>
+        <div class="off"><input id="offname" placeholder="Nombre sin cuenta" maxlength="16"><button class="btn ghost" id="offbtn">Usar</button></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2 id="packname">Pack de mods</h2>
+      <p class="small" id="modcount"></p>
+      <button class="btn ghost" id="update">Instalar o actualizar mods</button>
+      <label class="ram">Memoria para el juego <b id="ramv">4 GB</b>
+        <input type="range" id="ram" min="2" max="16" step="1" value="4"></label>
+      <button class="link" id="folder">Abrir carpeta del juego</button>
+    </div>
+
+    <div class="panel news">
+      <h2>Novedades</h2>
+      <div id="news"></div>
+    </div>
+  </aside>
+</main>
+
+<footer class="ad" id="ad" hidden>
+  <span class="adtag" id="adtag">Patrocinado</span>
+  <a id="adtext" href="#"></a>
+  <button id="adclose" aria-label="Ocultar anuncio">×</button>
+</footer>
+<script src="renderer.js"></script>
+</body>
+</html>
