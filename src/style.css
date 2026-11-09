@@ -1,0 +1,57 @@
+:root{--ink:#12081a;--plum:#24102f;--ember:#ff6a1f;--gold:#ffc53d;--rose:#e0338c;--sky:#28b5f5;--txt:#f6eefb;--mut:#a995b8;--line:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{display:flex;flex-direction:column;background:radial-gradient(900px 500px at 35% 30%,#3a1740 0,transparent 70%),var(--ink);color:var(--txt);font:15px/1.5 'Nunito Sans',system-ui,sans-serif;overflow:hidden;user-select:none}
+.bar{height:38px;display:flex;align-items:center;justify-content:space-between;padding-left:16px;-webkit-app-region:drag}
+.brand{font:700 12px 'Silkscreen',monospace;color:var(--gold);letter-spacing:.04em}
+.wc{display:flex;-webkit-app-region:no-drag}
+.wc button{width:46px;height:38px;border:0;background:none;color:var(--mut);font-size:20px;cursor:pointer}
+.wc button:hover{background:rgba(255,255,255,.08);color:#fff}
+.wc button:last-child:hover{background:#c0392b}
+main{flex:1;display:grid;grid-template-columns:1fr 320px;gap:20px;padding:0 22px 14px;min-height:0}
+.stage{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.halo{position:absolute;width:470px;height:470px;border-radius:50%;top:calc(50% - 300px);filter:blur(60px);opacity:.55;
+ background:conic-gradient(from 0deg,var(--gold),var(--ember),var(--rose),#7a2cff,var(--sky),var(--gold));animation:spin 28s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.logo{position:relative;width:min(560px,88%);filter:drop-shadow(0 10px 30px rgba(255,106,31,.35))}
+.ver{position:relative;margin:6px 0 26px;color:var(--mut);font-weight:600}
+.play{position:relative;min-width:300px;padding:16px 40px 14px;border:0;border-bottom:7px solid #a63a00;border-radius:6px;cursor:pointer;
+ background:linear-gradient(180deg,var(--gold),var(--ember));color:#2a0f00;font:700 26px 'Silkscreen',monospace;letter-spacing:.06em;transition:transform .08s,filter .15s}
+.play:hover:not(:disabled){filter:brightness(1.1)}
+.play:active:not(:disabled){transform:translateY(4px);border-bottom-width:3px}
+.play:disabled{filter:grayscale(.85) brightness(.6);cursor:default}
+.prog{position:relative;width:300px;height:8px;margin-top:18px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--ember),var(--gold));transition:width .2s}
+.msg{position:relative;margin-top:10px;min-height:22px;color:var(--mut);font-size:13px;max-width:420px}
+.msg.err{color:#ff8a8a}
+.side{display:flex;flex-direction:column;gap:12px;overflow:auto;padding:4px 2px}
+.panel{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.panel h2{font:700 13px 'Silkscreen',monospace;color:var(--gold);margin-bottom:10px}
+.small{color:var(--mut);font-size:13px;margin-bottom:10px}
+.who{font-weight:800;font-size:17px}
+.btn{width:100%;padding:10px 12px;border:0;border-radius:6px;cursor:pointer;font:800 14px 'Nunito Sans',sans-serif;color:#fff;background:linear-gradient(180deg,#8a3dff,#5b21c9);border-bottom:3px solid #3b1294}
+.btn:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.ghost{background:rgba(255,255,255,.08);border-bottom:3px solid rgba(255,255,255,.14);color:var(--txt)}
+.link{background:none;border:0;color:var(--mut);cursor:pointer;font:600 13px 'Nunito Sans';padding:6px 0 0;text-decoration:underline}
+.link:hover{color:#fff}
+.off{display:flex;gap:6px;margin-top:8px}
+.off .btn{width:70px}
+input[type=text],#offname{flex:1;min-width:0;padding:9px 10px;border-radius:6px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--txt);font:600 14px 'Nunito Sans'}
+.ram{display:block;margin-top:14px;font-size:13px;color:var(--mut)}
+.ram b{float:right;color:var(--txt)}
+input[type=range]{width:100%;margin-top:6px;accent-color:var(--ember)}
+.news{flex:1;min-height:90px}
+.news article{padding:8px 0;border-top:1px solid var(--line)}
+.news article:first-child{border-top:0;padding-top:0}
+.news h3{font-size:14px;font-weight:800}
+.news p{font-size:13px;color:var(--mut)}
+.ad{display:flex;align-items:center;gap:12px;margin:0 22px 14px;padding:8px 14px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:13px;animation:in .5s}
+@keyframes in{from{opacity:0}to{opacity:1}}
+.adtag{color:var(--mut);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 6px}
+.ad a{flex:1;color:var(--txt);text-decoration:none}
+.ad a:hover{color:var(--gold)}
+.ad button{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (max-width:980px){main{grid-template-columns:1fr}.side{display:none}}
+@media (prefers-reduced-motion:reduce){.halo{animation:none}}

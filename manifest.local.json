@@ -1,0 +1,11 @@
+{
+  "packName": "Sarex Pack",
+  "strict": true,
+  "mods": [],
+  "news": [
+    { "title": "Bienvenido", "text": "Pulsa JUGAR y el launcher instala todo por ti." }
+  ],
+  "ads": [
+    { "tag": "Patrocinado", "text": "Aquí puede ir un anuncio o un aviso de tu servidor.", "url": "https://example.com" }
+  ]
+}

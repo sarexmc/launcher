@@ -1,0 +1,27 @@
+{
+  "name": "sarexstudio-launcher",
+  "productName": "Sarex Studio Launcher",
+  "version": "1.0.0",
+  "description": "Launcher de Sarex Studio: Minecraft 1.21.1 con Fabric y mods en un clic",
+  "main": "src/main.js",
+  "author": "Sarex Studio",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "minecraft-launcher-core": "^3.18.2",
+    "msmc": "^5.0.5"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "studio.sarex.launcher",
+    "productName": "Sarex Studio Launcher",
+    "files": ["src/**/*", "assets/**/*", "config.json", "manifest.local.json", "package.json"],
+    "win": { "icon": "assets/icon.ico", "target": "nsis" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
